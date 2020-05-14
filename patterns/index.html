@@ -146,26 +146,11 @@
         <hr class="my-8"/>
 
         <h4 class="text-4xl mt-12 text-gray-700">Find A Pattern By Serverless Component Used</h4>
+        <p>
+            Click on an image below to show which patterns on <a href="www.cdkpatterns.com">cdkpatterns.com</a> contain that component
+        </p>
 
-        <section id="databases">
-            <header id="dbs" class="w-full z-30 top-0 py-1">
-                <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-                        Databases
-                    </a>
-                </div>
-            </header>
-
-            <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-                <a href="#">
-                    <img class="hover:grow hover:shadow-lg border" src="../img/dynamo.png">
-                    <div class="pt-3 flex items-center justify-between">
-                        <p class="">DynamoDB</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-        <section id="gateways">
+        <section id="gateways" class="mt-6">
             <header id="gateways" class="w-full z-30 top-0 py-1">
                 <div class="mt-0 py-3">
                     <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
@@ -214,7 +199,115 @@
                     <a href="#">
                         <img class="hover:grow hover:shadow-lg border" src="../img/lambda.png">
                         <div class="pt-3 flex items-center justify-between">
-                            <p class="">Lambda</p>
+                            <p class="">Lambda Function</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/sns.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">SNS</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/sqs.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">SQS</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/eventbridge.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">EventBridge</p>
+                        </div>
+                    </a>
+                </div>
+            </main>
+        </section>
+
+        <section id="orchestration">
+            <header class="w-full z-30 top-0 py-1">
+                <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                        Orchestration
+                    </a>
+                </div>
+            </header>
+            <main class="flex flex-wrap">
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/stepfunctions.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">Step Functions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/lambda.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">Lambda Destinations</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/eventbridge.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">EventBridge</p>
+                        </div>
+                    </a>
+                </div>
+            </main>
+        </section>
+
+        <section id="databases">
+            <header id="dbs" class="w-full z-30 top-0 py-1">
+                <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                        Storage
+                    </a>
+                </div>
+            </header>
+            <main class="flex flex-wrap">
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/dynamo.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">DynamoDB</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/s3.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">S3</p>
+                        </div>
+                    </a>
+                </div>
+            </main>
+        </section>
+
+        <section id="containers">
+            <header class="w-full z-30 top-0 py-1">
+                <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                        Containers
+                    </a>
+                </div>
+            </header>
+            <main class="flex flex-wrap">
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="../img/fargate.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">Fargate ECS Task</p>
                         </div>
                     </a>
                 </div>
