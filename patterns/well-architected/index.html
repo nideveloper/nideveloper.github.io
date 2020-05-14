@@ -164,7 +164,7 @@
             </main>
         </section>
 
-        <section id="operational-excellence" class="mt-8">
+        <section id="security" class="mt-8">
             <header class="w-full z-30 top-0 py-1">
                 <div class="mt-0 py-3">
                     <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
@@ -178,6 +178,146 @@
                     There are currently no CDK Patterns related to this pillar
                 </p>
             </header>
+        </section>
+
+        <section id="reliability" class="mt-8">
+            <header class="w-full z-30 top-0 py-1">
+                <div class="mt-0 py-3">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                        Reliability Pillar
+                    </a>
+                </div>
+                <p>
+                    The <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf#page=48">reliability pillar</a> includes the ability of a system to recover from infrastructure or service disruptions, dynamically 
+                    acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
+                </p>
+            </header>
+            <main class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-circuit-breaker/img/arch2.PNG">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The EventBridge Circuit Breaker</p>
+                        </div>
+                    </a>
+                    <p>
+                        Integrate with unreliable external services? Build a circuit breaker and handle the risk
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-saga-stepfunction/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Saga Step Function</p>
+                        </div>
+                    </a>
+                    <p>
+                        A mechanism for handling distributed transactions within your system.
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-scalable-webhook/img/architecture.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Scalable Webhook</p>
+                        </div>
+                    </a>
+                    <p>
+                        Need to integrate a non serverless resource like RDS with a serverless one like Lambda? This is your pattern
+                    </p>
+                </div>
+            </main>
+        </section>
+
+        <section id="performance-efficiency" class="mt-8">
+            <header class="w-full z-30 top-0 py-1">
+                <div class="mt-0 py-3">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                        Performance Efficiency Pillar
+                    </a>
+                </div>
+                <p>
+                    The <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf#page=56">performance efficiency pillar</a> focuses on the efficient use of computing resources to 
+                    meet requirements and the maintenance of that efficiency as demand changes and technologies evolve.
+                </p>
+            </header>
+            <main class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-dynamo-streamer/img/arch.jpg">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Dynamo Streamer</p>
+                        </div>
+                    </a>
+                    <p>
+                        You can integrate API Gateway directly with DynamoDB, this removes an unnecessary Lambda Function.
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
+                        </div>
+                    </a>
+                    <p>
+                        Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
+                    </p>
+                </div>
+            </main>
+        </section>
+
+        <section id="cost-optimization" class="mt-8">
+            <header class="w-full z-30 top-0 py-1">
+                <div class="mt-0 py-3">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                        Cost Optimization Pillar
+                    </a>
+                </div>
+                <p>
+                    The <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf#page=67">cost optimization pillar</a> 
+                    includes the continual process of refinement and improvement 
+                    of a system over its entire lifecycle. From the initial design of your first proof of concept 
+                    to the ongoing operation of production workloads, adopting the practices in this document will 
+                    enable you to build and operate cost-aware systems that achieve business outcomes and minimize 
+                    costs, thus allowing your business to maximize its return on investment.
+                </p>
+            </header>
+            <main class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-big-fan/img/the-big-fan-arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Big Fan</p>
+                        </div>
+                    </a>
+                    <p>
+                        You can integrate API Gateway directly with SNS and then add some resiliency by integrating your event consumers via sqs and message filtering.
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-dynamo-streamer/img/arch.jpg">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Dynamo Streamer</p>
+                        </div>
+                    </a>
+                    <p>
+                        You can integrate API Gateway directly with DynamoDB, this removes an unnecessary Lambda Function.
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="#">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
+                        </div>
+                    </a>
+                    <p>
+                        Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
+                    </p>
+                </div>
+            </main>
         </section>
 
     </section>
