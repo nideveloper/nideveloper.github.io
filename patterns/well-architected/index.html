@@ -303,7 +303,7 @@
                         </div>
                     </a>
                     <p>
-                        You can integrate API Gateway directly with SNS and then add some resiliency by integrating your event consumers via sqs and message filtering.
+                        Don't send every message to every SNS topic subscriber. Use message filtering to reduce the amount of messages processed per subscriber
                     </p>
                 </div>
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
