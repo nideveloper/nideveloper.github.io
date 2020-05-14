@@ -148,6 +148,21 @@
                     improve supporting processes and procedures.
                 </p>
             </header>
+            <p class="mt-3">
+                There are three best practice areas for operational excellence in the cloud:
+            </p>
+            <ul>
+                <li>- Prepare</li>
+                <li>- Operate</li>
+                <li>- Evolve</li>
+            </ul>
+
+            <p class="mt-6 font-bold text-gray-800 text-lg">
+                Operate
+            </p>
+            <blockquote>
+                OPS 1: How do you understand the health of your Serverless application?
+            </blockquote>
             <main class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-xray-tracer/README.md">
@@ -192,6 +207,99 @@
                     acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
                 </p>
             </header>
+            <p class="mt-3">
+                There are three best practice areas for reliability in the cloud:
+            </p>
+            <ul>
+                <li>- Foundations</li>
+                <li>- Change management</li>
+                <li>- Failure management</li>
+            </ul>
+            <p class="mt-6 font-bold text-gray-800 text-lg">
+                Foundations
+            </p>
+            <blockquote>
+                REL 1: How are you regulating inbound request rates?
+            </blockquote>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-scalable-webhook/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-scalable-webhook/img/architecture.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Scalable Webhook</p>
+                        </div>
+                    </a>
+                    <p>
+                        Need to integrate a non serverless resource like RDS with a serverless one like Lambda? This is your pattern
+                    </p>
+                </div>
+            </div>
+            <blockquote class="mt-6">
+                REL 2: How are you building resiliency into your serverless application?
+            </blockquote>
+            <p class="mt-6 font-bold text-md">
+                Asynchronous Calls and Events
+            </p>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-big-fan/README.md">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 27px 0" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-big-fan/img/the-big-fan-arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Big Fan</p>
+                        </div>
+                    </a>
+                    <p>
+                        Uses SNS to fan out Async messages between multiple consumers
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-destined-lambda/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-destined-lambda/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Destined Lambda</p>
+                        </div>
+                    </a>
+                    <p>
+                        Combine Lambda Destinations with EventBridge to build an event driven system
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-atm/README.md">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 60px 15px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-atm/img/amazon-eventbridge-custom-application-2.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The EventBridge ATM</p>
+                        </div>
+                    </a>
+                    <p>
+                        Build an event driven ATM with different rules to route events
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-etl/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-etl/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The EventBridge ETL</p>
+                        </div>
+                    </a>
+                    <p>
+                        Build a fully serverless, event driven CSV to DynamoDB pipeline
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-state-machine/README.md">
+                        <img class="hover:grow hover:shadow-lg border"  style="padding: 30px 0px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-state-machine/img/the-state-machine-arch-overview.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The State Machine</p>
+                        </div>
+                    </a>
+                    <p>
+                        Have complex orchestration logic in your application? Build a state machine
+                    </p>
+                </div>
+            </div>
+            <p class="mt-6 font-bold text-gray-800 text-lg">
+                Failure Management
+            </p>
             <main class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-circuit-breaker/README.md">
@@ -223,20 +331,10 @@
                         </div>
                     </a>
                     <p>
-                        Combine Lambda Destinations with EventBridge to handle errors in your system
+                        Take advantage of Lambda Destinations to get the full error stack out of the box
                     </p>
                 </div>
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-scalable-webhook/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-scalable-webhook/img/architecture.png">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The Scalable Webhook</p>
-                        </div>
-                    </a>
-                    <p>
-                        Need to integrate a non serverless resource like RDS with a serverless one like Lambda? This is your pattern
-                    </p>
-                </div>
+                
             </main>
         </section>
 
@@ -252,27 +350,42 @@
                     meet requirements and the maintenance of that efficiency as demand changes and technologies evolve.
                 </p>
             </header>
+            <p class="mt-3">
+                Performance efficiency in the cloud is composed of four areas:
+            </p>
+            <ul>
+                <li>- Selection</li>
+                <li>- Review</li>
+                <li>- Monitoring</li>
+                <li>- Tradeoffs</li>
+            </ul>
+            <p class="mt-6 font-bold text-gray-800 text-lg">
+                Selection
+            </p>
+            <blockquote>
+                PER 1: How have you optimized the performance of your serverless application?
+            </blockquote>
             <main class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-dynamo-streamer/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-dynamo-streamer/img/arch.jpg">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The Dynamo Streamer</p>
-                        </div>
-                    </a>
-                    <p>
-                        You can integrate API Gateway directly with DynamoDB, this removes an unnecessary Lambda Function.
-                    </p>
-                </div>
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-power-tuner/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 15px 0 0;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
                         <div class="pt-3 flex items-center justify-between">
                             <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
                         </div>
                     </a>
                     <p>
                         Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-simple-graphql-service/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-simple-graphql-service/img/architecture.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Simple GraphQL Service</p>
+                        </div>
+                    </a>
+                    <p>
+                        Simple graphQL service built with AppSync. Allows UIs to subscribe to DynamoDB changes via websockets
                     </p>
                 </div>
             </main>
@@ -294,10 +407,42 @@
                     costs, thus allowing your business to maximize its return on investment.
                 </p>
             </header>
+            <p class="mt-3">
+                There are four best practice areas for cost optimization in the cloud:
+            </p>
+            <ul>
+                <li>- Cost-effective resources</li>
+                <li>- Matching supply and demand</li>
+                <li>- Expenditure awareness</li>
+                <li>- Optimizing over time</li>
+            </ul>
+
+            <blockquote class="mt-6">
+                COST 1: How do you optimize your costs?
+            </blockquote>
+            <p class="mt-3 font-bold text-gray-800 text-lg">
+                Cost-effective resources
+            </p>
+            <main class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-power-tuner/README.md">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 15px 0 0;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
+                        </div>
+                    </a>
+                    <p>
+                        Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
+                    </p>
+                </div>
+            </main>
+            <p class="mt-3 font-bold text-gray-800 text-lg">
+                Direct Integrations
+            </p>
             <main class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-big-fan/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-big-fan/img/the-big-fan-arch.png">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 11px 0px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-big-fan/img/the-big-fan-arch.png">
                         <div class="pt-3 flex items-center justify-between">
                             <p class="text-gray-800 font-normal">The Big Fan</p>
                         </div>
@@ -308,7 +453,7 @@
                 </div>
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-dynamo-streamer/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-dynamo-streamer/img/arch.jpg">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 30px 10px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-dynamo-streamer/img/arch.jpg">
                         <div class="pt-3 flex items-center justify-between">
                             <p class="text-gray-800 font-normal">The Dynamo Streamer</p>
                         </div>
@@ -317,15 +462,20 @@
                         You can integrate API Gateway directly with DynamoDB, this removes an unnecessary Lambda Function.
                     </p>
                 </div>
+            </main>
+            <p class="mt-3 font-bold text-gray-800 text-lg">
+                Code Optimization
+            </p>
+            <main class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-power-tuner/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-trilogy/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-trilogy/img/arch2.png">
                         <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
+                            <p class="text-gray-800 font-normal">The Lambda Trilogy</p>
                         </div>
                     </a>
                     <p>
-                        Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
+                        See the 3 states of Lambda in action (Single Purpose Function, Fat Lambda and Lambda-lith) and learn the trade-offs with each
                     </p>
                 </div>
             </main>
