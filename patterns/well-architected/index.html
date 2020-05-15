@@ -177,6 +177,19 @@
                     </p>
                 </div>
             </main>
+
+            <blockquote class="mt-6">
+                OPS 2: How do you approach application lifecycle management?
+            </blockquote>
+            <p class="mt-3">
+                &quot;Use infrastructure as code to create temporary environments for new features you may need to prototype, and tear them down as 
+                you complete them. Temporary environments allows for higher fidelity when working with managed services, and increase levels of 
+                control to gain confidence your workload integrates and operates as intended.&quot;
+            </p>
+            <p class="mt-3">
+                CDK Patterns are all infrastructure as code allowing you to deploy a temporary environment and then run cdk destroy to tear it down
+                after you are finished. All the Typescript patterns also come with a full suite of unit tests.
+            </p>
         </section>
 
         <section id="security" class="mt-8">
