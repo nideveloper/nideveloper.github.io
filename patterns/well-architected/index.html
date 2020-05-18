@@ -20,6 +20,11 @@
             src: url('../../font/Raleway-Light.ttf');
         }
 
+        @font-face {
+            font-family: 'raleway-medium';
+            src: url('../../font/Raleway-Medium.ttf');
+        }
+
         .worksans {
             font-family: 'raleway', 'Work Sans', sans-serif;
         }
@@ -78,14 +83,19 @@
         }
 
 
-        @media (min-width: 1024px) {
-            .main-container {
-                max-width: 1024px;
+        @media (min-width: 1280px) {
+            .text-base {
+                font-size: 1.2rem;
             }
         }
 
         a {
             color: #6392fb;
+        }
+
+        .section-heading {
+            font-family: 'raleway-medium', 'raleway', 'Work Sans', sans-serif;
+            font-weight: 900;
         }
     </style>
 
@@ -129,17 +139,42 @@
             and cost-effective systems in the cloud. It provides a way for you to consistently measure your architectures against best practices 
             and identify areas for improvement. We believe that having well-architected systems greatly increases the likelihood of business success.
         </p>
-        <p class="mt-8">
+        <p class="mt-6">
             <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf">Serverless Lens Whitepaper</a>
         </p>
         <p>
             <a href="http://d0.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">Well Architected Whitepaper</a>
         </p>
+        <p>
+            <a href="https://wa.aws.amazon.com/wat.map.en.html">AWS Well Architected Map</a>
+        </p>
 
-        <section id="operational-excellence" class="mt-8">
+        <p class="mt-6 text-2xl mb-3 text-gray-700">
+            The Five Pillars are:
+        </p>
+        <ul>
+            <li>
+                <a href="#operational-excellence">Operational Excellence</a>
+            </li>
+            <li>
+                <a href="#security">Security</a>
+            </li>
+            <li>
+                <a href="#reliability">Reliability</a>
+            </li>
+            <li>
+                <a href="#performance-efficiency">Performance Efficiency</a>
+            </li>
+            <li>
+                <a href="#cost-optimization">Cost Optimization</a>
+            </li>
+        </ul>
+
+        <!-- Operational Excellence -->
+        <section id="operational-excellence" class="mt-6">
             <header class="w-full z-30 top-0 py-1">
-                <div class="mt-0 py-3">
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                <div class="mt-0 py-3 ">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold section-heading text-gray-700 text-2xl" href="#">
                         Operational Excellence Pillar
                     </a>
                 </div>
@@ -148,70 +183,194 @@
                     improve supporting processes and procedures.
                 </p>
             </header>
-            <p class="mt-3">
-                There are three best practice areas for operational excellence in the cloud:
-            </p>
-            <ul>
-                <li>- Prepare</li>
-                <li>- Operate</li>
-                <li>- Evolve</li>
-            </ul>
+            <!-- Ops 1 -->
+            <div id="ops1">
+                <blockquote class="mt-6 font-bold text-gray-700 text-xl">
+                    OPS 1: How do you understand the health of your Serverless application? (<a href="https://wa.aws.amazon.com/serv.question.OPS_1.en.html">AWS docs</a>)
+                </blockquote>
+                <p class="my-3">
+                    Evaluating your metrics, distributed tracing, and logging gives you insight into business and operational events, 
+                    and helps you understand which services should be optimized to improve your customer’s experience.
+                </p>
+                <h4 class="text-md mt-6 text-gray-800">
+                    AWS Best Practices
+                </h4>
+                <p class="my-3">
+                    <span class="text-gray-800">1 / Understand, analyze, and alert on metrics provided out of the box:</span><br />
+                    Each managed service emits metrics out of the box. 
+                    Establish key metrics for each managed service as the basis for comparison, and for identifying under and over performing components. 
+                    Examples of key metrics include function errors, queue depth, failed state machine executions, and response times.
+                </p>
+                <a class="my-3 ml-6" href="https://wa.aws.amazon.com/serv.question.OPS_1.en.html#step1">AWS Improvement Plan</a>
 
-            <p class="mt-6 font-bold text-gray-800 text-lg">
-                Operate
-            </p>
-            <blockquote>
-                OPS 1: How do you understand the health of your Serverless application?
-            </blockquote>
-            <main class="flex flex-wrap">
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-xray-tracer/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-xray-tracer/img/arch_notitle.png">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The X-Ray Tracer</p>
-                        </div>
-                    </a>
-                    <p>
-                        Learn about using AWS X-Ray for tracing events through your system. This pattern has X-Ray enabled on API Gateway, 
-                        Lambda, DynamoDB, External HTTP calls, SNS and SQS
-                    </p>
-                </div>
-            </main>
-
-            <blockquote class="mt-6">
-                OPS 2: How do you approach application lifecycle management?
-            </blockquote>
-            <p class="mt-3">
-                &quot;Use infrastructure as code to create temporary environments for new features you may need to prototype, and tear them down as 
-                you complete them. Temporary environments allows for higher fidelity when working with managed services, and increase levels of 
-                control to gain confidence your workload integrates and operates as intended.&quot;
-            </p>
-            <p class="mt-3">
-                CDK Patterns are all infrastructure as code allowing you to deploy a temporary environment and then run cdk destroy to tear it down
-                after you are finished. All the Typescript patterns also come with a full suite of unit tests.
-            </p>
+                <p class="my-3 mt-6">
+                    <span class="text-gray-800">2 / Use distributed tracing and code is instrumented with additional context:</span><br />
+                    Instrument your application code to emit 
+                    information about its status, correlation identifiers, business outcomes, and information to determine transaction flows across your workload.
+                </p>
+                <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.OPS_1.en.html#step2">AWS Improvement Plan</a>
+                <main class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-xray-tracer/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-xray-tracer/img/arch_notitle.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The X-Ray Tracer</p>
+                            </div>
+                        </a>
+                        <p>
+                            Learn about using AWS X-Ray for tracing events through your system. This pattern has X-Ray enabled on API Gateway, 
+                            Lambda, DynamoDB, External HTTP calls, SNS and SQS
+                        </p>
+                    </div>
+                </main>
+                <p class="my-3 mt-6">
+                    <span class="text-gray-800">3 / Use structured and centralized logging:</span><br />
+                    Standardize your application logging to emit operational information about transactions, correlation identifiers, request identifiers across components, 
+                    and business outcomes. Use this information to answer arbitrary questions about the state of your workload.
+                </p>
+                <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.OPS_1.en.html#step3">AWS Improvement Plan</a>
+                <p class="my-3 mt-6">
+                    <span class="text-gray-800">4 / Use application, business, and operations metrics:</span><br />
+                    Identify key performance indicators (KPIs) based on desired business and customer outcomes. Evaluate KPIs to determine workload success and operational health.
+                </p>
+                <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.OPS_1.en.html#step4">AWS Improvement Plan</a>
+            </div>
+            <!-- Ops 2 -->
+            <div id="ops2">
+                <blockquote  class="mt-6 font-bold text-gray-700 text-xl">
+                    OPS 2: How do you approach application lifecycle management?
+                </blockquote>
+                <p class="mt-3">
+                    Adopt lifecycle management approaches that improve the flow of changes to production with higher fidelity, fast feedback on quality, and quick bug fixing. 
+                    These practices help you rapidly identify, remediate, and limit changes that impact customer experience.
+                </p>
+                <p class="ml-6 my-3">
+                    All CDK Patterns use Infrastructure as code that enables you to create disposable environments through cdk deploy, then quickly destroy them through cdk destroy.
+                </p>
+                <a class="ml-6 mb-6" href="https://wa.aws.amazon.com/serv.question.OPS_2.en.html">AWS Improvement Plan</a>
+            </div>
         </section>
 
+        <div class="py-6 pt-12">
+            <hr />
+        </div>
+
+        <!-- Security -->
         <section id="security" class="mt-8">
             <header class="w-full z-30 top-0 py-1">
                 <div class="mt-0 py-3">
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold section-heading text-gray-700 text-2xl " href="#">
                         Security Pillar
                     </a>
                 </div>
                 <p>
                     The <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf#page=38">security pillar</a> includes the ability to protect information, systems, and assets while delivering business value through risk assessments and mitigation strategies.
                 </p>
-                <p class="mt-8">
-                    There are currently no CDK Patterns related to this pillar
-                </p>
             </header>
+            <!-- Sec 1 -->
+            <div id="sec1">
+                <blockquote class="mt-6 font-bold text-gray-700 text-xl">
+                    SEC 1: How do you control access to your Serverless API? (<a href="https://wa.aws.amazon.com/serv.question.SEC_1.en.html">AWS docs</a>)
+                </blockquote>
+                <p class="my-3">
+                    Use authentication and authorization mechanisms to prevent unauthorized access, and enforce quotas for public resources.
+                </p>
+            </div>
+            <!-- Sec 2 -->
+            <div id="sec2">
+                <blockquote class="mt-6 font-bold text-gray-700 text-xl">
+                    SEC 2: How do you manage your Serverless application’s security boundaries? (<a href="https://wa.aws.amazon.com/serv.question.SEC_2.en.html">AWS docs</a>)
+                </blockquote>
+                <p class="my-3">
+                    Defining and securing your Serverless application’s boundaries ensures isolation for, within, and between components.
+                </p>
+                <h4 class="text-md mt-6 text-gray-800">
+                    AWS Best Practices
+                </h4>
+                <p class="my-3 mt-6">
+                    <span class="text-gray-800">1 / Evaluate and define resource policies:</span><br />
+                    Resource policies can restrict inbound access to managed services. Consider using resource policies to restrict access to your component based on the source 
+                    IP address/range, geolocation, function event source, version, alias, queues, etc.
+                </p>
+                <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.SEC_2.en.html#step1">AWS Improvement Plan</a>
+                <p class="my-3 mt-6">
+                    <span class="text-gray-800">2 / Use temporary credentials between resources and components:</span><br />
+                    Credentials and permissions policies should not be shared between any resources in order to maintain a granular segregation of permissions.
+                </p>
+                <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.SEC_2.en.html#step2">AWS Improvement Plan</a>
+                <p class="ml-6 mt-3">
+                    CDK out of the box does a great job defining IAM roles with least priviledge per function. You can however end up sharing roles if you are not careful,
+                    you will notice that the unit tests for all cdk patterns check that the roles are not merged.<br />
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-etl/typescript/test/the-eventbridge-etl.test.ts#L251">e.g. EventBridge ETL Lambda Permissions Unit Test</a>
+                </p>
+                <p class="my-3 mt-6">
+                    <span class="text-gray-800">3 / Control network traffic at all layers:</span><br />
+                    Apply controls for controlling both ingress and egress traffic, including data loss prevention. Functions deployed to virtual private networks must consider network access restrict resource access.
+                </p>
+                <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.SEC_2.en.html#step3">AWS Improvement Plan</a>
+                <p class="my-3 mt-6">
+                    <span class="text-gray-800">4 / Design smaller, single purpose functions:</span><br />
+                    Grant automated or programmatic access to users or roles with only the minimum privileges needed in order to reduce the risk of unauthorized access. 
+                    Creating smaller, single purpose functions enables you to keep your permissions aligned to least privileged access, and reduces the risk of compromise since the function will do less.
+                </p>
+                <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.SEC_2.en.html#step4">AWS Improvement Plan</a>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-circuit-breaker/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-circuit-breaker/img/arch2.PNG">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The EventBridge Circuit Breaker</p>
+                            </div>
+                        </a>
+                        <p>
+                            The two lambdas in this pattern only have read or write access to DynamoDB, not both.
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-etl/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-etl/img/arch.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The EventBridge ETL</p>
+                            </div>
+                        </a>
+                        <p>
+                            Each component in the ETL flow only has access to exactly what it needs
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-trilogy/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-trilogy/img/arch2.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Lambda Trilogy</p>
+                            </div>
+                        </a>
+                        <p>
+                            See the difference in a single purpose function, a fat lambda and a lambdalith
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sec 3 -->
+            <div id="sec3">
+                <blockquote class="mt-6 font-bold text-gray-700 text-xl">
+                    SEC 3: How do you implement application Security in your workload? (<a href="https://wa.aws.amazon.com/serv.question.SEC_3.en.html">AWS docs</a>)
+                </blockquote>
+                <p class="my-3">
+                    Review and automate security practices at the application code level, and enforce security code review as part of development workflow. 
+                    These best practices protect against emerging security threats and reduce the attack surface from malicious code (including third-party dependencies).
+                </p>
+            </div>
         </section>
 
+        <div class="py-6 pt-12">
+            <hr />
+        </div>
+
+        <!-- Reliability -->
         <section id="reliability" class="mt-8">
             <header class="w-full z-30 top-0 py-1">
                 <div class="mt-0 py-3">
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold section-heading text-gray-700 text-2xl " href="#">
                         Reliability Pillar
                     </a>
                 </div>
@@ -220,20 +379,44 @@
                     acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
                 </p>
             </header>
-            <p class="mt-3">
-                There are three best practice areas for reliability in the cloud:
-            </p>
-            <ul>
-                <li>- Foundations</li>
-                <li>- Change management</li>
-                <li>- Failure management</li>
-            </ul>
-            <p class="mt-6 font-bold text-gray-800 text-lg">
-                Foundations
-            </p>
-            <blockquote>
+            <!-- Rel 1 -->
+            <blockquote class="mt-6 font-bold text-gray-700 text-xl">
                 REL 1: How are you regulating inbound request rates?
             </blockquote>
+            <p class="my-3">
+                Defining, analyzing, and enforcing inbound request rates helps achieve better throughput. Regulation helps you adapt different scaling mechanisms based on customer demand.
+            </p>
+            <h4 class="text-md mt-6 text-gray-800">
+                AWS Best Practices
+            </h4>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">1 / Use throttling to control inbound request rates:</span><br />
+                Use throttling limits to control inbound requests by setting steady-state and burst rates limits.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.REL_1.en.html#step1">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-etl/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-etl/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The EventBridge ETL</p>
+                        </div>
+                    </a>
+                    <p>
+                        Every single lambda in this pattern is throttled down to prevent account level Lambda concurrency DOS
+                    </p>
+                </div>
+            </div>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">2 / Use, analyze, and enforce API quotas:</span><br />
+                API quotas limit the maximum number of requests that can be submitted within a specified time interval with a given API key.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.REL_1.en.html#step2">AWS Improvement Plan</a>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">3 / Use mechanisms to protect non-scalable resources:</span><br />
+                Functions can scale faster than traditional resources, such as relational databases and cache systems. Protect non-scalable resources by adapting fast scaling components to downstream systems throughput.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.REL_1.en.html#step3">AWS Improvement Plan</a>
             <div class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-scalable-webhook/README.md">
@@ -247,12 +430,201 @@
                     </p>
                 </div>
             </div>
-            <blockquote class="mt-6">
+            <!-- Rel 2 -->
+            <blockquote class="mt-6 font-bold text-gray-700 text-xl">
                 REL 2: How are you building resiliency into your serverless application?
             </blockquote>
-            <p class="mt-6 font-bold text-md">
-                Asynchronous Calls and Events
+            <p class="my-3">
+                Evaluate scaling mechanisms for Serverless and non-Serverless resources to meet customer demand, and build resiliency to withstand partial and intermittent failures across dependencies.
             </p>
+            <h4 class="text-md mt-6 text-gray-800">
+                AWS Best Practices
+            </h4>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">1 / Manage transaction, partial, and intermittent failures:</span><br />
+                Transaction failures might occur when components are under high load. Partial failures can occur during batch processing, 
+                while intermittent failures might occur due to network or other transient issues.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.REL_2.en.html#step1">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-circuit-breaker/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-circuit-breaker/img/arch2.PNG">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The EventBridge Circuit Breaker</p>
+                        </div>
+                    </a>
+                    <p>
+                        Integrate with unreliable external services? Build a circuit breaker and handle the risk
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-destined-lambda/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-destined-lambda/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Destined Lambda</p>
+                        </div>
+                    </a>
+                    <p>
+                        Lambda Destinations give the full error trace as standard, allowing you to easily replay events
+                    </p>
+                </div>
+            </div>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">2 / Manage duplicate and unwanted events:</span><br />
+                Duplicate events can occur when a request is retried, multiple consumers process the same message from a queue or stream, or when a request is sent twice at different time intervals with the same parameters. 
+                Design your applications to process multiple identical requests to have the same effect as making a single request. Events not adhering to your schema should be discarded.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.REL_2.en.html#step2">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-big-fan/README.md">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 27px 0" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-big-fan/img/the-big-fan-arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Big Fan</p>
+                        </div>
+                    </a>
+                    <p>
+                        Uses SNS event filtering to fan out specific events to different consumers
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-atm/README.md">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 60px 15px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-atm/img/amazon-eventbridge-custom-application-2.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The EventBridge ATM</p>
+                        </div>
+                    </a>
+                    <p>
+                        Build an event driven ATM with different rules to route events to different consumers
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-scalable-webhook/README.md">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 60px 10px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-scalable-webhook/img/architecture.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Scalable Webhook</p>
+                        </div>
+                    </a>
+                    <p>
+                        SQS frequently sends the same event twice so this pattern uses a Deduplication ID to handle that scenario
+                    </p>
+                </div>
+            </div>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">3 / Orchestrate long-running transactions:</span><br />
+                Long-running transactions can be processed by one or multiple components. Favor state machines for long-running transaction instead of handling them within application 
+                code in a single component or multiple synchronous dependency call chains.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.REL_2.en.html#step3">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-etl/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-etl/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The EventBridge ETL</p>
+                        </div>
+                    </a>
+                    <p>
+                        An alternative to step functions is to use EventBridge to handle complex flows asynchronously
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-saga-stepfunction/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-saga-stepfunction/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Saga Step Function</p>
+                        </div>
+                    </a>
+                    <p>
+                        A mechanism for handling distributed transactions within your system.
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-state-machine/README.md">
+                        <img class="hover:grow hover:shadow-lg border"  style="padding: 30px 0px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-state-machine/img/the-state-machine-arch-overview.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The State Machine</p>
+                        </div>
+                    </a>
+                    <p>
+                        Have complex orchestration logic in your application? Build a state machine
+                    </p>
+                </div>
+            </div>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">4 / Consider scaling patterns at burst rates:</span><br />
+                In addition to your baseline performance, consider evaluating how your workload handle initial burst rates that may be expected or unexpected peaks.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.REL_2.en.html#step4">AWS Improvement Plan</a>
+        </section>
+
+        <div class="py-6 pt-12">
+            <hr />
+        </div>
+
+        <!-- Performance Efficiency -->
+        <section id="performance-efficiency" class="mt-8">
+            <header class="w-full z-30 top-0 py-1">
+                <div class="mt-0 py-3">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold section-heading text-gray-700 text-2xl " href="#performance-efficiency">
+                        Performance Efficiency Pillar
+                    </a>
+                </div>
+                <p>
+                    The <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf#page=56">performance efficiency pillar</a> focuses on the efficient use of computing resources to 
+                    meet requirements and the maintenance of that efficiency as demand changes and technologies evolve.
+                </p>
+            </header>
+            <blockquote class="mt-6 font-bold text-gray-700 text-xl">
+                PER 1: How have you optimized the performance of your serverless application?
+            </blockquote>
+            <h4 class="text-md mt-6 text-gray-800">
+                AWS Best Practices
+            </h4>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">1 / Measure, evaluate, and select optimum capacity units:</span><br />
+                Capacity units can be function memory size, stream shards, database reads/writes request units, API endpoints, etc.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.PERF_1.en.html#step1">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-power-tuner/README.md">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 15px 0 0;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
+                        </div>
+                    </a>
+                    <p>
+                        Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
+                    </p>
+                </div>
+            </div>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">2 / Measure and optimize function startup time:</span><br />
+                Evaluate function startup time for both performance and cost.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.PERF_1.en.html#step2">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-xray-tracer/README.md">
+                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-xray-tracer/img/arch_notitle.png">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="text-gray-800 font-normal">The X-Ray Tracer</p>
+                        </div>
+                    </a>
+                    <p>
+                        Learn about using AWS X-Ray for tracing events through your system. This pattern has X-Ray enabled on API Gateway, 
+                        Lambda, DynamoDB, External HTTP calls, SNS and SQS
+                    </p>
+                </div>
+            </div>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">3 / Take advantage of concurrency via async and stream-based function invocations:</span><br />
+                Functions can be executed synchronously and asynchronously. A functions’ concurrency model can be better used via asynchronous and stream-based invocations. Queues, streams, 
+                or events can be aggregated resulting in more efficient processing time per invocation rather than invocation per request-response approach.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.PERF_1.en.html#step3">AWS Improvement Plan</a>
             <div class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-big-fan/README.md">
@@ -298,98 +670,13 @@
                         Build a fully serverless, event driven CSV to DynamoDB pipeline
                     </p>
                 </div>
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-state-machine/README.md">
-                        <img class="hover:grow hover:shadow-lg border"  style="padding: 30px 0px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-state-machine/img/the-state-machine-arch-overview.png">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The State Machine</p>
-                        </div>
-                    </a>
-                    <p>
-                        Have complex orchestration logic in your application? Build a state machine
-                    </p>
-                </div>
             </div>
-            <p class="mt-6 font-bold text-gray-800 text-lg">
-                Failure Management
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">4 / Optimize access patterns and apply caching where applicable:</span><br />
+                Consider caching data that may not need to be frequently up-to-date, and optimize access patterns to only fetch data that is necessary to end users.
             </p>
-            <main class="flex flex-wrap">
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-circuit-breaker/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-circuit-breaker/img/arch2.PNG">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The EventBridge Circuit Breaker</p>
-                        </div>
-                    </a>
-                    <p>
-                        Integrate with unreliable external services? Build a circuit breaker and handle the risk
-                    </p>
-                </div>
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-saga-stepfunction/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-saga-stepfunction/img/arch.png">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The Saga Step Function</p>
-                        </div>
-                    </a>
-                    <p>
-                        A mechanism for handling distributed transactions within your system.
-                    </p>
-                </div>
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-destined-lambda/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-destined-lambda/img/arch.png">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The Destined Lambda</p>
-                        </div>
-                    </a>
-                    <p>
-                        Take advantage of Lambda Destinations to get the full error stack out of the box
-                    </p>
-                </div>
-                
-            </main>
-        </section>
-
-        <section id="performance-efficiency" class="mt-8">
-            <header class="w-full z-30 top-0 py-1">
-                <div class="mt-0 py-3">
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-                        Performance Efficiency Pillar
-                    </a>
-                </div>
-                <p>
-                    The <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf#page=56">performance efficiency pillar</a> focuses on the efficient use of computing resources to 
-                    meet requirements and the maintenance of that efficiency as demand changes and technologies evolve.
-                </p>
-            </header>
-            <p class="mt-3">
-                Performance efficiency in the cloud is composed of four areas:
-            </p>
-            <ul>
-                <li>- Selection</li>
-                <li>- Review</li>
-                <li>- Monitoring</li>
-                <li>- Tradeoffs</li>
-            </ul>
-            <p class="mt-6 font-bold text-gray-800 text-lg">
-                Selection
-            </p>
-            <blockquote>
-                PER 1: How have you optimized the performance of your serverless application?
-            </blockquote>
-            <main class="flex flex-wrap">
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-power-tuner/README.md">
-                        <img class="hover:grow hover:shadow-lg border" style="padding: 15px 0 0;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
-                        </div>
-                    </a>
-                    <p>
-                        Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
-                    </p>
-                </div>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.PERF_1.en.html#step4">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-simple-graphql-service/README.md">
                         <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-simple-graphql-service/img/architecture.png">
@@ -398,61 +685,16 @@
                         </div>
                     </a>
                     <p>
-                        Simple graphQL service built with AppSync. Allows UIs to subscribe to DynamoDB changes via websockets
+                        Simple graphQL service built with AppSync. Allows UIs to specify exactly what data they want.
                     </p>
                 </div>
-            </main>
-        </section>
-
-        <section id="cost-optimization" class="mt-8">
-            <header class="w-full z-30 top-0 py-1">
-                <div class="mt-0 py-3">
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-                        Cost Optimization Pillar
-                    </a>
-                </div>
-                <p>
-                    The <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf#page=67">cost optimization pillar</a> 
-                    includes the continual process of refinement and improvement 
-                    of a system over its entire lifecycle. From the initial design of your first proof of concept 
-                    to the ongoing operation of production workloads, adopting the practices in this document will 
-                    enable you to build and operate cost-aware systems that achieve business outcomes and minimize 
-                    costs, thus allowing your business to maximize its return on investment.
-                </p>
-            </header>
-            <p class="mt-3">
-                There are four best practice areas for cost optimization in the cloud:
+            </div>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">5 / Integrate with managed services directly over functions when possible:</span><br />
+                Consider using native integration between managed services as opposed to functions when no custom logic or data transformation is required.
             </p>
-            <ul>
-                <li>- Cost-effective resources</li>
-                <li>- Matching supply and demand</li>
-                <li>- Expenditure awareness</li>
-                <li>- Optimizing over time</li>
-            </ul>
-
-            <blockquote class="mt-6">
-                COST 1: How do you optimize your costs?
-            </blockquote>
-            <p class="mt-3 font-bold text-gray-800 text-lg">
-                Cost-effective resources
-            </p>
-            <main class="flex flex-wrap">
-                <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-power-tuner/README.md">
-                        <img class="hover:grow hover:shadow-lg border" style="padding: 15px 0 0;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
-                        <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
-                        </div>
-                    </a>
-                    <p>
-                        Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
-                    </p>
-                </div>
-            </main>
-            <p class="mt-3 font-bold text-gray-800 text-lg">
-                Direct Integrations
-            </p>
-            <main class="flex flex-wrap">
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.PERF_1.en.html#step5">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
                     <a href="https://github.com/cdk-patterns/serverless/blob/master/the-big-fan/README.md">
                         <img class="hover:grow hover:shadow-lg border" style="padding: 11px 0px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-big-fan/img/the-big-fan-arch.png">
@@ -461,7 +703,7 @@
                         </div>
                     </a>
                     <p>
-                        Don't send every message to every SNS topic subscriber. Use message filtering to reduce the amount of messages processed per subscriber
+                        API Gateway directly integrated with SNS via VTL, removing the need for a Lambda Function.
                     </p>
                 </div>
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
@@ -475,27 +717,76 @@
                         You can integrate API Gateway directly with DynamoDB, this removes an unnecessary Lambda Function.
                     </p>
                 </div>
-            </main>
-            <p class="mt-3 font-bold text-gray-800 text-lg">
-                Code Optimization
+            </div>
+        </section>
+
+        <div class="py-6 pt-12">
+            <hr />
+        </div>
+
+        <section id="cost-optimization" class="mt-8">
+            <header class="w-full z-30 top-0 py-1">
+                <div class="mt-0 py-3">
+                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold section-heading text-gray-700 text-2xl " href="#">
+                        Cost Optimization Pillar
+                    </a>
+                </div>
+                <p>
+                    The <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf#page=67">cost optimization pillar</a> 
+                    includes the continual process of refinement and improvement 
+                    of a system over its entire lifecycle. From the initial design of your first proof of concept 
+                    to the ongoing operation of production workloads, adopting the practices in this document will 
+                    enable you to build and operate cost-aware systems that achieve business outcomes and minimize 
+                    costs, thus allowing your business to maximize its return on investment.
+                </p>
+            </header>
+
+            <blockquote class="mt-6 font-bold text-gray-700 text-xl">
+                COST 1: How do you optimize your costs?
+            </blockquote>
+            <h4 class="text-md mt-6 text-gray-800">
+                AWS Best Practices
+            </h4>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">1 / Minimize external calls and function code initialization:</span><br />
+                Functions may call other managed services and third-party APIs to operate as intended. Functions may also use application dependencies that may not be suitable for ephemeral environments. 
+                Reviewing and optimizing both can directly impact on value provided per invocation.
             </p>
-            <main class="flex flex-wrap">
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.COST_1.en.html#step1">AWS Improvement Plan</a>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">2 / Optimize logging output and its retention:</span><br />
+                Review logging level, logging output, and log retention to ensure that they meet your operational needs. 
+                This helps prevent unnecessary logging and data retention while ensuring that you have the minimum levels necessary for workload operation.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.COST_1.en.html#step2">AWS Improvement Plan</a>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">3 / Optimize function configuration to reduce cost:</span><br />
+                Functions unit of scale is memory where CPU, Network and I/O are proportionately allocated. 
+                Consider benchmarking and reviewing whether you are under/overutilising what your function is allocated to. 
+                Benchmark your Lambda function execution with various memory settings as under some conditions the added Memory/CPU may lower the duration 
+                and with this new combination reduce the cost of each invocation.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.COST_1.en.html#step3">AWS Improvement Plan</a>
+            <div class="flex flex-wrap">
                 <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col">
-                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-trilogy/README.md">
-                        <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-trilogy/img/arch2.png">
+                    <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-power-tuner/README.md">
+                        <img class="hover:grow hover:shadow-lg border" style="padding: 15px 0 0;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
                         <div class="pt-3 flex items-center justify-between">
-                            <p class="text-gray-800 font-normal">The Lambda Trilogy</p>
+                            <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
                         </div>
                     </a>
                     <p>
-                        See the 3 states of Lambda in action (Single Purpose Function, Fat Lambda and Lambda-lith) and learn the trade-offs with each
+                        Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
                     </p>
                 </div>
-            </main>
+            </div>
+            <p class="my-3 mt-6">
+                <span class="text-gray-800">4 / Use cost-aware usage patterns in code:</span><br />
+                Reduce the time consumed by running functions by eliminating job-polling or task coordination.
+            </p>
+            <a class="ml-6 mt-0 mb-6" href="https://wa.aws.amazon.com/serv.question.COST_1.en.html#step4">AWS Improvement Plan</a>
         </section>
-
     </section>
-
 </body>
 
 </html>
