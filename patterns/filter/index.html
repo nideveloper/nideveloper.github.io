@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CDK Patterns - Well Architected</title>
+    <meta name="description" content="An opensource collection of serverless architecture patterns build using AWS CDK">
+    <meta name="keywords" content="aws, cdk, serverless, lambda, sns, sqs, eventbridge, apigw, dynamodb, fargate, appsync">
+
+    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../../styles/styles.css" rel="stylesheet">
+    <!--Replace with your tailwind.css once created-->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'raleway';
+            src: url('../../font/Raleway-Light.ttf');
+        }
+
+        @font-face {
+            font-family: 'raleway-medium';
+            src: url('../../font/Raleway-Medium.ttf');
+        }
+
+        .worksans {
+            font-family: 'raleway', 'Work Sans', sans-serif;
+        }
+                
+        #menu-toggle:checked + #menu {
+            display: block;
+        }
+        
+        .hover\:grow {
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+        
+        .hover\:grow:hover {
+            transform: scale(1.02);
+        }
+
+        body {
+            background-color: #e4f0ff40;
+            font-family: raleway;
+        }
+
+
+        @media (min-width: 1280px) {
+            .text-base {
+                font-size: 1.2rem;
+            }
+        }
+
+        a {
+            color: #6392fb;
+        }
+
+        .section-heading {
+            font-family: 'raleway-medium', 'raleway', 'Work Sans', sans-serif;
+            font-weight: 900;
+        }
+    </style>
+
+</head>
+
+<body class="text-gray-600 work-sans leading-normal text-base tracking-normal">
+
+    <section class="bg-white container main-container shadow-xl border border-gray-300 w-full mx-auto mt-8 mb-12 px-16 pb-16 pt-4">
+        <div class="flex flex-wrap pb-1 pt-3 text-xl">
+            <div class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2">
+                <img src="../../img/cdk.png" style="width: 300px;" alt="logo" class=""/>
+            </div>
+            <div class="w-1/2 text-center md:w-1/4 md:text-center lg:w-1/6 lg:text-left xl:w-1/6 xl:text-left pt-3 md:pt-12">
+                <a href="/">About</a>
+            </div> 
+            <div class="w-1/2 md:w-1/4 lg:w-1/6 xl:w-1/6 pt-3 md:pt-12 text-gray-500">
+                Find A Pattern
+            </div>
+        </div>
+        <hr class="mb-1 mt-8"/>
+        <p class="text-gray-700">By:</p>
+        <nav class="flex flex-wrap">
+            <div class="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-6 flex flex-col items-center md:border-r-2">
+                <a href="/patterns">AWS Components</a>
+            </div>
+            <div class="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-6 md:px-4 flex flex-col items-center md:border-r-2 my-6 md:my-0">
+                <a href="/patterns/well-architected">
+                    AWS Well Architected
+                </a>
+            </div>
+            <div class="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-6 flex flex-col items-center text-gray-500 ">
+                    View All Patterns
+            </div>
+        </nav>      
+        <hr class="mt-6 mb-6"/>
+        <h4 id="page-title" class="text-3xl mt-8 mb-3 text-gray-700">Patterns That Contain </h4>
+        
+        <!-- All Patterns -->
+        <section id="all-patterns" class="mt-6">
+            <div id="all">
+                <h4 id="a" class="mt-6 font-bold text-gray-700 text-xl">
+                    A
+                </h4>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern s3 cloudfront">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/s3-angular-website/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/s3-angular-website/img/architecture.PNG">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">AWS S3 Angular Website Deploy</p>
+                            </div>
+                        </a>
+                        <p>
+                            Deploy an Angular website to an S3 bucket with the easy ability to add Route53 and CloudFront
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern s3 cloudfront">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/s3-react-website/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/s3-angular-website/img/architecture.PNG">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">AWS S3 React Website Deploy</p>
+                            </div>
+                        </a>
+                        <p>
+                            Deploy a React website to an S3 bucket with the easy ability to add Route53 and CloudFront
+                        </p>
+                    </div>
+                </div>
+                <h4 id="b" class="mt-6 font-bold text-gray-700 text-xl">
+                    B
+                </h4>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern apigatewayrestapi lambda sns sqs">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-big-fan/README.md">
+                            <img class="hover:grow hover:shadow-lg border" style="padding: 27px 0" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-big-fan/img/the-big-fan-arch.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Big Fan</p>
+                            </div>
+                        </a>
+                        <p>
+                            Uses SNS event filtering to fan out specific events to different consumers
+                        </p>
+                    </div>
+                </div>
+                <h4 id="c" class="mt-6 font-bold text-gray-700 text-xl">
+                    C
+                </h4>
+                <h4 id="d" class="mt-6 font-bold text-gray-700 text-xl">
+                    D
+                </h4>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern apigatewayrestapi lambda lambdadestinations sns eventbridge">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-destined-lambda/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-destined-lambda/img/arch.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Destined Lambda</p>
+                            </div>
+                        </a>
+                        <p>
+                            Lambda Destinations give the full error trace as standard, allowing you to easily replay events
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern dynamodb apigatewayrestapi lambda">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-dynamo-streamer/README.md">
+                            <img class="hover:grow hover:shadow-lg border" style="padding: 60px 10px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-dynamo-streamer/img/arch.jpg">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Dynamo Streamer</p>
+                            </div>
+                        </a>
+                        <p>
+                            You can integrate API Gateway directly with DynamoDB, this removes an unnecessary Lambda Function.
+                        </p>
+                    </div>
+                </div>
+                <h4 id="e" class="mt-6 font-bold text-gray-700 text-xl">
+                    E
+                </h4>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern apigatewayrestapi lambda eventbridge">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-atm/README.md">
+                            <img class="hover:grow hover:shadow-lg border" style="padding: 85px 15px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-atm/img/amazon-eventbridge-custom-application-2.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The EventBridge ATM</p>
+                            </div>
+                        </a>
+                        <p>
+                            Build an event driven ATM with different rules to route events to different consumers
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern dynamodb apigatewayrestapi lambda eventbridge">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-circuit-breaker/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-circuit-breaker/img/arch2.PNG">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The EventBridge Circuit Breaker</p>
+                            </div>
+                        </a>
+                        <p>
+                            Integrate with unreliable external services? Build a circuit breaker and handle the risk
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern dynamodb lambda sqs eventbridge s3 fargateecstask">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-eventbridge-etl/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-eventbridge-etl/img/arch.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The EventBridge ETL</p>
+                            </div>
+                        </a>
+                        <p>
+                            Build a fully serverless CSV to DynamoDB pipeline
+                        </p>
+                    </div>
+                </div>
+                <h4 id="f" class="mt-6 font-bold text-gray-700 text-xl">
+                    F
+                </h4>
+                <h4 id="g" class="mt-6 font-bold text-gray-700 text-xl">
+                    G
+                </h4>
+                <h4 id="h" class="mt-6 font-bold text-gray-700 text-xl">
+                    H
+                </h4>
+                <h4 id="i" class="mt-6 font-bold text-gray-700 text-xl">
+                    I
+                </h4>
+                <h4 id="j" class="mt-6 font-bold text-gray-700 text-xl">
+                    J
+                </h4>
+                <h4 id="k" class="mt-6 font-bold text-gray-700 text-xl">
+                    K
+                </h4>
+                <h4 id="l" class="mt-6 font-bold text-gray-700 text-xl">
+                    L
+                </h4>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern lambda lambdapowertuner">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-power-tuner/README.md">
+                            <img class="hover:grow hover:shadow-lg border" style="padding: 15px 0 0;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-power-tuner/img/arch.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Lambda Power Tuner</p>
+                            </div>
+                        </a>
+                        <p>
+                            Use the Lambda Power Tuner state machine to work out the optimum configuration settings for your Lambda Function.
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern apigatewayrestapi lambda">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-lambda-trilogy/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-lambda-trilogy/img/arch2.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Lambda Trilogy</p>
+                            </div>
+                        </a>
+                        <p>
+                            See the difference in a single purpose function, a fat lambda and a lambdalith
+                        </p>
+                    </div>
+                </div>
+                <h4 id="m" class="mt-6 font-bold text-gray-700 text-xl">
+                    M
+                </h4>
+                <h4 id="n" class="mt-6 font-bold text-gray-700 text-xl">
+                    N
+                </h4>
+                <h4 id="o" class="mt-6 font-bold text-gray-700 text-xl">
+                    O
+                </h4>
+                <h4 id="p" class="mt-6 font-bold text-gray-700 text-xl">
+                    P
+                </h4>
+                <h4 id="q" class="mt-6 font-bold text-gray-700 text-xl">
+                    Q
+                </h4>
+                <h4 id="r" class="mt-6 font-bold text-gray-700 text-xl">
+                    R
+                </h4>
+                <h4 id="s" class="mt-6 font-bold text-gray-700 text-xl">
+                    S
+                </h4>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern dynamodb apigatewayrestapi lambda stepfunctions">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-saga-stepfunction/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-saga-stepfunction/img/arch.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Saga Step Function</p>
+                            </div>
+                        </a>
+                        <p>
+                            A mechanism for handling distributed transactions within your system.
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern dynamodb apigatewayrestapi lambda sqs">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-scalable-webhook/README.md">
+                            <img class="hover:grow hover:shadow-lg border" style="padding: 110px 10px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-scalable-webhook/img/architecture.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Scalable Webhook</p>
+                            </div>
+                        </a>
+                        <p>
+                            Need to integrate a non serverless resource like RDS with a serverless one like Lambda? This is your pattern
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern dynamodb appsync lambda">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-simple-graphql-service/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-simple-graphql-service/img/architecture.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Simple GraphQL Service</p>
+                            </div>
+                        </a>
+                        <p>
+                            Simple graphQL service built with AppSync. Allows UIs to specify exactly what data they want.
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern dynamodb apigatewayhttpapi lambda">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-simple-webservice/README.md">
+                            <img class="hover:grow hover:shadow-lg border" style="padding: 110px 10px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-simple-webservice/img/architecture.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The Simple Webservice</p>
+                            </div>
+                        </a>
+                        <p>
+                            The most basic pattern on cdkpatterns, the start of most peoples serverless journey
+                        </p>
+                    </div>
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern apigatewayrestapi lambda sqs stepfunctions">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-state-machine/README.md">
+                            <img class="hover:grow hover:shadow-lg border"  style="padding: 30px 0px;" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-state-machine/img/the-state-machine-arch-overview.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The State Machine</p>
+                            </div>
+                        </a>
+                        <p>
+                            Have complex orchestration logic in your application? Build a state machine
+                        </p>
+                    </div>
+                </div>
+                <h4 id="t" class="mt-6 font-bold text-gray-700 text-xl">
+                    T
+                </h4>
+                <h4 id="u" class="mt-6 font-bold text-gray-700 text-xl">
+                    U
+                </h4>
+                <h4 id="v" class="mt-6 font-bold text-gray-700 text-xl">
+                    V
+                </h4>
+                <h4 id="w" class="mt-6 font-bold text-gray-700 text-xl">
+                    W
+                </h4>
+                <h4 id="x" class="mt-6 font-bold text-gray-700 text-xl">
+                    X
+                </h4>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 xl:w-1/2 p-6 flex flex-col pattern dynamodb apigatewayrestapi lambda sns sqs x-ray">
+                        <a href="https://github.com/cdk-patterns/serverless/blob/master/the-xray-tracer/README.md">
+                            <img class="hover:grow hover:shadow-lg border" src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/the-xray-tracer/img/arch_notitle.png">
+                            <div class="pt-3 flex items-center justify-between">
+                                <p class="text-gray-800 font-normal">The X-Ray Tracer</p>
+                            </div>
+                        </a>
+                        <p>
+                            Learn about using AWS X-Ray for tracing events through your system. This pattern has X-Ray enabled on API Gateway, 
+                            Lambda, DynamoDB, External HTTP calls, SNS and SQS
+                        </p>
+                    </div>
+                </div>
+                <h4 id="y" class="mt-6 font-bold text-gray-700 text-xl">
+                    Y
+                </h4>
+                <h4 id="z" class="mt-6 font-bold text-gray-700 text-xl">
+                    Z
+                </h4>
+            </div>
+        </section>
+
+       
+    </section>
+    <script>
+        function hasClass(element, className) {
+            return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
+        }
+        let params = new URL(window.location.toString()).searchParams;
+        let filterComponent = params.get('by');
+
+        // Add tech into page title
+        document.getElementById('page-title').textContent += filterComponent;
+
+        let patterns = document.getElementsByClassName("pattern");
+        for(let pattern of patterns){
+            console.log(pattern);
+            let filterComponentLowerCaseNoSpaces = filterComponent.toLowerCase().replace(/\s/g, "");
+            if(!hasClass(pattern, filterComponentLowerCaseNoSpaces)){
+                pattern.classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+
+</html>
