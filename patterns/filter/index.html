@@ -83,20 +83,25 @@
         <hr class="mb-1 mt-8"/>
         <p class="text-gray-700">By:</p>
         <nav class="flex flex-wrap">
-            <div class="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-6 flex flex-col items-center md:border-r-2">
-                <a href="/patterns">AWS Components</a>
+            <div class="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-6 flex flex-col items-center md:border-r-2 text-gray-500">
+                <a class="text-gray-500" href="/patterns">AWS Components</a>
             </div>
             <div class="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-6 md:px-4 flex flex-col items-center md:border-r-2 my-6 md:my-0">
                 <a href="/patterns/well-architected">
                     AWS Well Architected
                 </a>
             </div>
-            <div class="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-6 flex flex-col items-center text-gray-500 ">
+            <div class="w-full md:w-1/3 lg:w-1/3 xl:w-1/3 px-6 flex flex-col items-center">
+                <a href="/patterns/all">
                     View All Patterns
+                </a>
             </div>
         </nav>      
         <hr class="mt-6 mb-6"/>
-        <h4 id="page-title" class="text-3xl mt-8 mb-3 text-gray-700">Patterns That Contain </h4>
+        <div>
+            <a href="/patterns">View All AWS Components</a>
+        </div>
+        <h4 id="page-title" class="text-3xl mt-3 mb-3 text-gray-700">Patterns Contain </h4>
         
         <!-- All Patterns -->
         <section id="all-patterns" class="mt-6">
@@ -386,13 +391,24 @@
         document.getElementById('page-title').textContent += filterComponent;
 
         let patterns = document.getElementsByClassName("pattern");
+        let filterComponentLowerCaseNoSpaces = filterComponent.toLowerCase().replace(/\s/g, "");
+        let numPatterns = 0;
+        
         for(let pattern of patterns){
-            console.log(pattern);
-            let filterComponentLowerCaseNoSpaces = filterComponent.toLowerCase().replace(/\s/g, "");
             if(!hasClass(pattern, filterComponentLowerCaseNoSpaces)){
                 pattern.classList.add("hidden");
+            }else {
+                numPatterns++;
             }
         }
+
+        let titleText = document.getElementById('page-title').textContent;
+        // Need to change some verbage when there is only 1 result
+        if(numPatterns === 1){
+            titleText = titleText.replace("Patterns", "Pattern");
+            titleText = titleText.replace("Contain", "Contains");
+        }
+        document.getElementById('page-title').textContent = `${numPatterns} ${titleText}`;
     </script>
 </body>
 
