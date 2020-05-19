@@ -393,6 +393,7 @@
         let params = new URL(window.location.toString()).searchParams;
         let filterComponent = "";
 
+        // Older versions of Edge don't support searchParams
         if(typeof params == 'undefined'){
             filterComponent = decodeURI(window.location.search).replace("?by=","");
         }else {
@@ -406,9 +407,13 @@
         let filterComponentLowerCaseNoSpaces = filterComponent.toLowerCase().replace(/\s/g, "");
         let numPatterns = 0;
 
-        for(let pattern of patterns){
+        // Older versions of edge don't support for of loops...
+        for(let index in patterns){
+            let pattern = patterns[index];
             if(!hasClass(pattern, filterComponentLowerCaseNoSpaces)){
-                pattern.classList.add("hidden");
+                if(typeof pattern.classList != 'undefined'){
+                    pattern.classList.add("hidden");
+                }
             }else {
                 numPatterns++;
             }
