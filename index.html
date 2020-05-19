@@ -20,6 +20,11 @@
             src: url('font/Raleway-Light.ttf');
         }
 
+        @font-face {
+            font-family: 'raleway-medium';
+            src: url('../../font/Raleway-Medium.ttf');
+        }
+
         .worksans {
             font-family: 'raleway', 'Work Sans', sans-serif;
         }
@@ -36,45 +41,15 @@
         .hover\:grow:hover {
             transform: scale(1.02);
         }
-        
-        .carousel-open:checked + .carousel-item {
-            position: static;
-            opacity: 100;
-        }
-        
-        .carousel-item {
-            -webkit-transition: opacity 0.6s ease-out;
-            transition: opacity 0.6s ease-out;
-        }
-        
-        #carousel-1:checked ~ .control-1,
-        #carousel-2:checked ~ .control-2,
-        #carousel-3:checked ~ .control-3 {
-            display: block;
-        }
-        
-        .carousel-indicators {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            position: absolute;
-            bottom: 2%;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 10;
-        }
-        
-        #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
-        #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-        #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
-            color: #000;
-            /*Set to match the Tailwind colour you want the active one to be */
-        }
 
         body {
             background-color: #e4f0ff40;
             font-family: raleway;
+        }
+
+        .impact-text {
+            font-family: 'raleway-medium', 'raleway', 'Work Sans', sans-serif;
+            font-weight: 900;
         }
 
         @media (min-width: 1280px) {
@@ -130,6 +105,10 @@
         </div>
     </section>-->
 
+    
+    
+    
+    
     <section class="bg-white container main-container shadow-xl border border-gray-300 w-full mx-auto mt-8 mb-12 px-16 pb-16 pt-4">
         <div class="flex flex-wrap pb-1 pt-3 text-xl">
             <div class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2">
@@ -144,44 +123,73 @@
         </div>
         <hr class="my-8"/>
 
-        <h4 class="text-4xl mt-12 text-gray-700">CDK Patterns is more than "just AWS CDK"</h4>
-        <p class="mb-16">
-            Matt Coulter - May 2020
-        </p>
+        <h4 class="text-4xl mt-12 text-gray-700 impact-text">CDK Patterns is more than ''just AWS CDK examples''</h4>
 
-        <h4 class="text-2xl mb-6 mt-12 text-gray-700">16 Serverless Patterns</h4>
+        <h4 class="text-2xl mb-6 mt-12 text-gray-600 impact-text">Check Out Our 4 Content Distribution Platforms:</h4>
         <div class="flex flex-wrap">
-            <div class="w-1/2">
+            <div class="w-1/2 lg:w-1/4 p-0 md:p-12 lg:p-6">
+                <a href="https://github.com/cdk-patterns/serverless"><img src="img/Octocat.png" alt="octocat" /></a>
+            </div>
+            <div class="w-1/2 lg:w-1/4 p-0 md:p-6">
+                <a href="https://twitter.com/CdkPatterns"><img src="img/Twitter_Logo_Blue.png" alt="twitter" /></a>
+            </div>
+            <hr class="w-full lg:hidden"/>
+            <div class="w-1/2 lg:w-1/4 flex items-center p-0 md:p-6">
+                <a href="https://www.youtube.com/c/DeconstructingAWSCDKPatterns"><img src="img/yt_logo_rgb_light.png" alt="youtube" /></a>
+            </div>
+            <div class="w-1/2 lg:w-1/4 p-6 md:p-16 lg:p-12">
+                <a href="https://dev.to/nideveloper"><img src="img/SkSoEQL3_400x400.jpg" alt="The practical dev" /></a>
+            </div>
+        </div>
+        <div class="text-2xl impact-text hidden lg:flex lg:flex-wrap">
+            <div class="w-1/2 lg:w-1/4 pl-6">
+                <a href="https://github.com/cdk-patterns/serverless">GitHub</a>
+            </div>
+            <div class="w-1/2 lg:w-1/4 pl-6">
+                <a href="https://twitter.com/CdkPatterns">Twitter</a>
+            </div>
+            <div class="w-1/2 lg:w-1/4 pl-6">
+                <a href="https://www.youtube.com/c/DeconstructingAWSCDKPatterns">YouTube</a>
+            </div>
+            <div class="w-1/2 lg:w-1/4 pl-6">
+                <a href="https://dev.to/nideveloper">The Practical Dev</a>
+            </div>
+        </div>
+
+
+        <h4 class="text-2xl mb-6 mt-24 sm:mt-12 text-gray-600 impact-text">Showing 16 Serverless Patterns</h4>
+        <div class="flex flex-wrap">
+            <div class="w-full sm:w-1/2">
                 <img src="img/components.png" />
             </div>
-            <div class="w-1/2 pt-12 pl-6">
+            <div class="w-full sm:w-1/2 pt-3 sm:pt-0 lg:pt-12 sm:pl-6">
                 <h5 class="text-xl">- Fully Open Source</h5>
                 <h5 class="text-xl">- Vanilla CloudFormation Provided</h5>
                 <h5 class="text-xl">- CDK unit tests for Infrastructure Provided</h5>
             </div>
         </div>
-        <h5 class="text-2xl mt-12 text-gray-700">Inspired By 10 Pattern Creators</h5>
+        <h5 class="text-2xl mt-24 sm:mt-12 text-gray-600 impact-text">Inspired By 10 Pattern Creators</h5>
         <div class="flex flex-wrap">
-            <div class="w-1/2">
+            <div class="w-full sm:w-1/2">
                 <img src="img/creators.png" />
             </div>
-            <div class="w-1/2 pt-24 pl-6">
+            <div class="w-full sm:w-1/2 pt-0 sm:pt-12 lg:pt-12 sm:pl-6">
                 <h5 class="text-xl">Backed by links to their external blogs/talks</h5>
             </div>
         </div>
 
-        <h5 class="text-2xl mt-3 mb-6 text-gray-700">In Real Programming Languages! (not YAML)</h5>
+        <h5 class="text-2xl mt-24 sm:mt-12 md:mt-3 mb-6 text-gray-600 impact-text">In Real Programming Languages! (not YAML)</h5>
         <div class="flex flex-wrap">
-            <div class="w-1/2 pt-12">
+            <div class="w-full flex md:block items-center md:items-start md:w-1/2 pt-6 md:pt-0">
                 <img src="img/ts.png" class="px-3 ml-auto" style="display:inline-block; width: 140px;"/>
                 <img src="img/python.png" class="px-3 mr-auto" style=" display:inline-block; width: 140px;"/>
             </div>
-            <div class="w-1/2 pt-12 pl-6 mb-12">
+            <div class="w-full md:w-1/2 pt-3 lg:pt-9 sm:pl-6 mb-12">
                 <h5 class="text-xl">Unleash your inner Pythonista or embrace TypeScript. You decide.</h5>
             </div>
         </div>
 
-        <h5 class="text-2xl mt-16 mb-6 text-gray-700">Filled With Serverless Well Architected Learnings</h5>
+        <h5 class="text-2xl mt-6 md:mt-16 mb-6 text-gray-600 impact-text">Filled With Serverless Well Architected Learnings</h5>
         <img class="mb-3" src="img/well_architected.png" />
     </section>
 
