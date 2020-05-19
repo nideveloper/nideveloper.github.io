@@ -63,7 +63,6 @@
             font-weight: 900;
         }
     </style>
-    <script src="/scripts/polyfill.js"></script>
 </head>
 
 <body class="text-gray-600 work-sans leading-normal text-base tracking-normal">
@@ -392,7 +391,13 @@
             return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
         }
         let params = new URL(window.location.toString()).searchParams;
-        let filterComponent = params.get('by');
+        let filterComponent = "";
+
+        if(typeof params == 'undefined'){
+            filterComponent = decodeURI(window.location.search).replace("?by=","");
+        }else {
+            filterComponent = params.get('by');
+        }
 
         // Add tech into page title
         document.getElementById('page-title').textContent += filterComponent;
@@ -423,6 +428,7 @@
                 letter.classList.add("hidden");
             }
         }
+        
     </script>
     <script>
         if(navigator.userAgent.indexOf('MSIE')!==-1
