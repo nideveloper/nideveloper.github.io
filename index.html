@@ -145,6 +145,13 @@
         <h5 class="text-2xl mt-6 md:mt-16 mb-6 text-gray-600">Filled With Serverless Well Architected Learnings</h5>
         <img class="mb-3" src="img/well_architected.png" />
     </section>
+    <script>
+        if(navigator.userAgent.indexOf('MSIE')!==-1
+        || navigator.appVersion.indexOf('Trident/') > -1){
+        /* Microsoft Internet Explorer detected in. */
+        document.body.innerHTML = '<h2 class="text-4xl pl-6 mt-12 text-gray-700">This site does not support Internet Explorer or older versions of Edge. Please update to a modern browser like chrome or visit github.com/cdk-patterns/serverless for basic content.</h2>';
+        }
+    </script>
 
 </body>
 
