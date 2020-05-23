@@ -50,11 +50,42 @@
             background-color: #e4f0ff40;
             font-family: raleway;
         }
+        
+        /*
+            We don't want the content to move significantly as images load so set an empty size until lazyloaded
+        */
 
+        @media (max-width: 639px) { 
+            img.lazyload {
+                height: 172px;
+            }
+        }
+
+        @media (min-width: 640px) { 
+            img.lazyload {
+                height: 260px;
+            }
+        }
+
+        @media (min-width: 768px) { 
+            img.lazyload {
+                height: 332px;
+            }
+         }
+
+        @media (min-width: 1024px) { 
+            img.lazyload {
+                height: 235px;
+            }
+         }
 
         @media (min-width: 1280px) {
             .text-base {
                 font-size: 1.2rem;
+            }
+
+            img.lazyload {
+                height: 310px;
             }
         }
 
