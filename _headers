@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: script-src 'self' 'https://platform.twitter.com/widgets.js' 'https://buttons.github.io/buttons.js'; frame-ancestors 'none'
+  Content-Security-Policy: script-src 'self' https://platform.twitter.com https://buttons.github.io; frame-ancestors 'none'
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
