@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: script-src 'self' https://platform.twitter.com https://buttons.github.io 'sha256-gL5KgkYLOhg546ABEr8KjEosuxK+cKRLDxHboCl5iDw='; frame-ancestors 'none'
+  Content-Security-Policy: script-src https://cdkpatterns.com https://serverless-patterns.co.uk https://platform.twitter.com https://buttons.github.io 'sha256-gL5KgkYLOhg546ABEr8KjEosuxK+cKRLDxHboCl5iDw='; frame-ancestors 'none'
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
